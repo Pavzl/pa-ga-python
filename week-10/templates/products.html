@@ -1,38 +1,36 @@
-{% extends "base.html" %}
-{% block header}
+{% extends 'base.html' %}
+{% block header %}
     <h1>Products</h1>
-{% endblock}
+{% endblock %}
 {% block content %}
-<table class = "table">
+
+<table class="table">
     <thead>
-        <th>id</th>
-        <th>name</th>
-        <th>description</th>
-        <td>price</th>
+         <th>id</th>  
+         <th>name</th>   
+         <th>description</th>
+         <th>price</th>   
+         <th></th>
     </thead>
     <tbody>
         {% for product in products %}
+        <form action="/products/{{product.id}}/delete" method="post">
         <tr>
             <td> {{ product.id }}</td>
             <td> {{ product.name }}</td>
             <td> {{ product.description }}</td>
             <td> {{ product.price }}</td>
+            
             <td>
-            <a href="#" class="btn btn-success btn-md">
+            <a href="/products/{{product.id}}" class="btn btn-success btn-md">
                 <span class="glyphicon glyphicon-pencil"></span> Edit 
                 </a> 
-                <a href="#" class="btn btn-danger btn-md">
-                    <span class="glyphicon glyphicon-trash"></span> Delete 
-                    </a>                
-                                        
-                </td>
+                <button type="submit" name="delete" value="{{product.id}}" class="btn btn-danger btn-md">Delete</button>
+            </td>            
         </tr>
+        </form>
         {% endfor %}
     </tbody>
 </table>
+
 {% endblock %}
-
-
-{% for product in products %}
-    <div> {{ name }} - {{ description }} </div>
-    {%}
