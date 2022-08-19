@@ -1,0 +1,38 @@
+{% extends "baseline.html" %}
+{% block header %}
+    <h1>Add a new Car</h1>
+{% endblock %}
+{% block content %}
+{% if cars %}
+    <form method="post">
+        <div class="form-group">
+            <label>Make</label>
+            <input type="text" name="make" value="{{cars.make}}"/>
+        </div>
+        <div class="form-group">
+            <label>Model</label>
+            <input type="text" name="model" value="{{cars.model}}"/>
+        </div>
+        <div class="form-group">
+            <label>Year</label>
+            <input type="text" name="year" value="{{cars.year}}"/>
+        </div>
+        <div class="form-group">
+            <label>Color</label>
+            <input type="text" name="color" value="{{cars.color}}"/>
+        </div>
+        <div class="form-group">
+            <label>Mileage: kilometers</label>
+            <input type="text" name="mileage" value="{{cars.mileage}}"/>
+        </div>
+        <div class="form-group">
+            <label>Price: Valued in CAD</label>
+            <input type="text" name="price" value="{{cars.price}}"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+ {% else %}
+    <h2>There are no Cars with such ID</h2>
+ {% endif %}   
+{% endblock %}
+
